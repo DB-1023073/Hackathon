@@ -1,0 +1,85 @@
+from random import randint
+
+print("----------------------")
+print("Mental Math Assistance")
+print("----------------------\n")
+
+operator = input("What Operators in Math are you Currently Struggling with? ").lower()
+
+list_of_numbers = [-12, -11, -10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+count, score, wrong = 1, 0, 0
+
+print("\n--------------------------------\n")
+
+if operator == "multiplication" or operator == "m":
+    print("MULTIPLICATION QUESTIONS\n")
+    while wrong < 1:
+        number1, number2 = list_of_numbers[randint(0, 23)], list_of_numbers[randint(0, 23)]
+        print(f"\nQuestion {count}: {number1} * {number2}")
+        try:
+            answer = int(input("Your Answer: "))
+            if answer == (number1 * number2):
+                print("Correct!")
+                score += 1
+            else:
+                print(f"Incorrect. The Correct Answer was: {number1 * number2}")
+                wrong += 1
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+        count += 1
+
+elif operator == "division" or operator == "d":
+    print("DIVISION QUESTIONS\n")
+    while wrong < 1:
+        number1, number2 = list_of_numbers[randint(0, 23)], list_of_numbers[randint(0, 23)]
+        if number2 == 0:
+            continue
+        print(f"\nQuestion {count}: {number1} / {number2}")
+        try:
+            answer = int(input("Your Answer: "))
+            if answer == number1 // number2:  # Integer division for comparison
+                print("Correct!")
+                score += 1
+            else:
+                print(f"Incorrect. The Correct Answer was: {number1 // number2}")
+                wrong += 1
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+        count += 1
+
+elif operator == "addition" or operator == "a":
+    print("ADDITION QUESTIONS\n")
+    while wrong < 1:
+        number1, number2 = list_of_numbers[randint(0, 23)], list_of_numbers[randint(0, 23)]
+        print(f"\nQuestion {count}: {number1} + {number2}")
+        try:
+            answer = int(input("Your Answer: "))
+            if answer == (number1 + number2):
+                print("Correct!")
+                score += 1
+            else:
+                print(f"Incorrect. The Correct Answer was: {number1 + number2}")
+                wrong += 1
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+        count += 1y
+
+elif operator == "subtraction" or operator == "s":
+    print("SUBTRACTION QUESTIONS\n")
+    while wrong < 1:
+        number1, number2 = list_of_numbers[randint(0, 23)], list_of_numbers[randint(0, 23)]
+        print(f"\nQuestion {count}: {number1} - {number2}")
+        try:
+            answer = int(input("Your Answer: "))
+            if answer == (number1 - number2):
+                print("Correct!")
+                score += 1
+            else:
+                print(f"Incorrect. The Correct Answer was: {number1 - number2}")
+                wrong += 1
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+        count += 1
+
+print(f"\nFINAL SCORE: {score}")
